@@ -1,26 +1,16 @@
-{% load static %}
-<html>
-    <head>
-        <title>Desmatamento e Queimadas</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-       <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Desmatamento e Queimadas</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        {% for post in posts %}
-            <div>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
                 <p>published: {{ post.published_date }}</p>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.text|linebreaksbr }}</p>
             </div>
-        {% endfor %}
-    </body>
-</html>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
 
 <p>Desmatamento é atualmente um dos maiores desafios da humanidade. Crescente em muitas regiões do planeta,<br> a retirada da cobertura vegetal tem preocupado o mundo todo.</p>
 
